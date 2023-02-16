@@ -28,4 +28,18 @@ public class Implement_Stack_Array {
 
         return a;
     }
+
+    //Another Way
+    void pushStack(int a) {
+        arr[++top] = a;
+    }
+
+    //Function to remove an item from top of the stack.
+
+    int popStack() {
+        if (top == -1)
+            return top;
+        else
+            return arr[top--];
+    }
 }
