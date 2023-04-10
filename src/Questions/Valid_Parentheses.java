@@ -74,4 +74,42 @@ public class Valid_Parentheses {
         return st.isEmpty();
 
     }
+
+    //################################### 3rd APPROACH #######################################
+
+    public boolean isValidP(String s) {
+        Stack<Character> stack = new Stack<>();
+        /**
+         check for opening bracket ie -> ( { [
+         if you found these push the corresponding closing bracket into stack top
+         when found close bracket
+         check close bracket present at the top of stack
+         At the end check if stack is empty which is the case in which no
+         opening bracket is found
+         OR
+         Stack top != ch return false
+         otherwise pop the ch from stack top
+         */
+
+        for (char ch : s.toCharArray()) {
+            if (ch == '(')
+                stack.push(')');
+
+            else if (ch == '{')
+                stack.push('}');
+
+            else if (ch == '[')
+                stack.push(']');
+
+            else if (stack.isEmpty() || stack.peek() != ch) {
+                return false;
+
+            } else {
+                stack.pop();
+            }
+        }
+
+        return stack.isEmpty();
+
+    }
 }
